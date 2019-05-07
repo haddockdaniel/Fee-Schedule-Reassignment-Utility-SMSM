@@ -222,7 +222,7 @@ namespace JurisUtilityBase
                             statusStrip.Refresh();
                         }
 
-                        if (CBSelectAll.Checked)
+                        if (CBSelectAll.Checked && rbCM.Checked && rbFSAll.Checked)
                         {
                             DialogResult rsAll = MessageBox.Show("Fee Schedules Updated for all client matters.  Do you wish to delete fee schedule?", "Fee Schedule Assignment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -240,7 +240,12 @@ namespace JurisUtilityBase
                         matterIDs = "";
                         cbFrom.SelectedIndex = -1;
                         cbTo.SelectedIndex = -1;
-                        System.Environment.Exit(0);
+                        try
+                        {
+                            System.Environment.Exit(0);
+                        }
+                        catch (Exception ex1)
+                        { }
                     }
                 }
             }
