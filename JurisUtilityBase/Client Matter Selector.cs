@@ -36,6 +36,8 @@ namespace JurisUtilityBase
                 listViewMatter.Visible = false;
                 label2.Visible = false;
                 clientOnly = true;
+                matterOnly = false;
+                both = false;
                 loadClientList(fromFeeSched, _jurisUtility);
             }
             else if (ClientMatterOption == "M") //they chose "Matter Only" in the main GUI
@@ -43,11 +45,15 @@ namespace JurisUtilityBase
                 listViewClient.Visible = false;
                 label1.Visible = false;
                 matterOnly = true;
+                clientOnly = false;
+                both = false;
                 loadMatterList(fromFeeSched, _jurisUtility, MatterStatusOption);
             }
             else
             {
+                clientOnly = false;
                 matterOnly = false;
+                both = true;
                 loadClientList(fromFeeSched, _jurisUtility);
                 loadMatterList(fromFeeSched, _jurisUtility, MatterStatusOption);
             }
@@ -64,6 +70,8 @@ namespace JurisUtilityBase
         public bool clientOnly;
 
         public bool matterOnly;
+
+        public bool both;
 
         public bool canLoad = true;
 
@@ -213,6 +221,9 @@ namespace JurisUtilityBase
 
         private void buttonContinue_Click(object sender, EventArgs e)
         {
+            clientIDs = "";
+            matterIDs = "";
+
             foreach (ListViewItem eachItem in listViewClient.CheckedItems)
             {
                 clientIDs = clientIDs + eachItem.SubItems[0].Text + ","; //get the client id from each item selected
@@ -224,7 +235,20 @@ namespace JurisUtilityBase
                 matterIDs = matterIDs + eachItem.SubItems[0].Text + ","; //get the client id from each item selected
             }
             matterIDs = matterIDs.TrimEnd(',');
-            this.Hide();
+
+            if (clientOnly && string.IsNullOrEmpty(clientIDs))
+                MessageBox.Show("At least one client selection is required with the chosen settings", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (matterOnly && string.IsNullOrEmpty(matterIDs))
+                MessageBox.Show("At least one matter selection is required with the chosen settings", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (both)
+            {
+                if (string.IsNullOrEmpty(clientIDs) || string.IsNullOrEmpty(matterIDs))
+                    MessageBox.Show("At least one matter and client selection is required with the chosen settings", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                    this.Hide();
+            }
+            else
+                this.Hide();
         }
     }
 }

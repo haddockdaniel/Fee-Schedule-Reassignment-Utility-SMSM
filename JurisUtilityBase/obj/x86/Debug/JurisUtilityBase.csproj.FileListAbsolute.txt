@@ -86,7 +86,6 @@ C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignmen
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility\JurisUtilityBase\obj\x86\Debug\JurisUtilityBase.PrinterDialog.resources
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility\JurisUtilityBase\obj\x86\Debug\JurisUtilityBase.ReportDisplay.resources
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JurisUtilityBase.csproj.ResolveComReference.cache
-C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JurisUtilityBase.csprojResolveAssemblyReference.cache
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JurisUtilityBase.Client_Matter_Selector.resources
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JurisUtilityBase.PrinterDialog.resources
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JurisUtilityBase.ReportDisplay.resources
