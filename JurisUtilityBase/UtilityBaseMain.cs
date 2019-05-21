@@ -188,12 +188,11 @@ namespace JurisUtilityBase
 
                     if (rsBoth == DialogResult.Yes)
                     {
-
                         if (rbCM.Checked)
                         {
-                            if (String.IsNullOrEmpty(clientIDs))
+                            if (!String.IsNullOrEmpty(clientIDs))
                                 updateClients();
-                            if (String.IsNullOrEmpty(matterIDs))
+                            if (!String.IsNullOrEmpty(matterIDs))
                                 updateMatters();
                             Cursor.Current = Cursors.Default;
                             Application.DoEvents();
@@ -204,7 +203,7 @@ namespace JurisUtilityBase
 
                         if (rbClient.Checked)
                         {
-                            if (String.IsNullOrEmpty(clientIDs))
+                            if (!String.IsNullOrEmpty(clientIDs))
                                 updateClients();
                             Cursor.Current = Cursors.Default;
                             Application.DoEvents();
@@ -214,7 +213,7 @@ namespace JurisUtilityBase
 
                         if (rbMatter.Checked)
                         {
-                            if (String.IsNullOrEmpty(matterIDs))
+                            if (!String.IsNullOrEmpty(matterIDs))
                                 updateMatters();
                             Cursor.Current = Cursors.Default;
                             Application.DoEvents();
@@ -242,10 +241,12 @@ namespace JurisUtilityBase
                         cbTo.SelectedIndex = -1;
                         try
                         {
-                            System.Environment.Exit(0);
+                            Environment.ExitCode = 1;
+                            Application.Exit();
                         }
                         catch (Exception ex1)
-                        { }
+                        {
+                        }
                     }
                 }
             }
@@ -254,31 +255,35 @@ namespace JurisUtilityBase
         
         private void updateClients()
         {  
-            Cursor.Current = Cursors.WaitCursor;
-            Application.DoEvents();
-            toolStripStatusLabel.Text = "Updating Client Fee Schedules....";
-            statusStrip.Refresh();
-            UpdateStatus("Client Fee Schedules", 2, 5);
+
 
             if (CBSelectAll.Checked)
                 clientIDs = "select clisysnbr from client where clifeesch = '" + fromFeeSched + "'";
             string CC2 = "update client set clifeesch ='" + toFeeSched.ToString() + "'  where CliSysNbr in (" + clientIDs + ")";
            _jurisUtility.ExecuteNonQueryCommand(0, CC2);
+
+           Cursor.Current = Cursors.WaitCursor;
+           Application.DoEvents();
+           toolStripStatusLabel.Text = "Updating Client Fee Schedules....";
+           statusStrip.Refresh();
+           UpdateStatus("Client Fee Schedules", 2, 5);
                  
            }
 
     private void updateMatters()
     {
-        Cursor.Current = Cursors.WaitCursor;
-        Application.DoEvents();
-        toolStripStatusLabel.Text = "Updating Matter Fee Schedules....";
-        statusStrip.Refresh();
-        UpdateStatus("Matter  Fee Schedules", 3, 5);
+
 
         if (CBSelectAll.Checked)
             matterIDs = "select MatSysNbr from matter where matfeesch = '" + fromFeeSched + "'";
         string MOpen = "update matter set matfeesch='" + toFeeSched.ToString() + "' where MatSysNbr in (" + matterIDs + ")";
         _jurisUtility.ExecuteNonQueryCommand(0, MOpen);
+
+        Cursor.Current = Cursors.WaitCursor;
+        Application.DoEvents();
+        toolStripStatusLabel.Text = "Updating Matter Fee Schedules....";
+        statusStrip.Refresh();
+        UpdateStatus("Matter  Fee Schedules", 3, 5);
 
     }
 

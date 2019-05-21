@@ -102,3 +102,4 @@ C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignmen
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JPS - FeeScheduleReassignment.application
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JPS - FeeScheduleReassignment.exe
 C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JPS - FeeScheduleReassignment.pdb
+C:\Users\haddocdx\Documents\Visual Studio 2012\Projects\Fee Schedule Reassignment Utility SMSM\JurisUtilityBase\obj\x86\Debug\JurisUtilityBase.csprojResolveAssemblyReference.cache

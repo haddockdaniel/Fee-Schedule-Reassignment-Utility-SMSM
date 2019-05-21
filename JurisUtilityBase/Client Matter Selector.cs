@@ -115,7 +115,7 @@ namespace JurisUtilityBase
         private void loadMatterList(string fromFeeSched, JurisUtility _jurisUtility, string matterStatus)
         {
             //if they chose open matters or closed matters, SQL will be appended to end. If they chose all, then status is blank so it does nothing
-            string SQLTkpr = "SELECT dbo.jfn_formatclientcode(clicode) as CliCode,[CliNickName], MatSysNbr, dbo.jfn_formatmattercode(matcode) as MatCode, MatNickName FROM [matter] inner join client on MatCliNbr = clisysnbr where MatFeeSch = '" + fromFeeSched + "'" + matterStatus;
+            string SQLTkpr = "SELECT dbo.jfn_formatclientcode(clicode) as CliCode,[CliNickName], MatSysNbr, dbo.jfn_formatmattercode(matcode) as MatCode, MatNickName FROM [matter] inner join client on MatCliNbr = clisysnbr where MatFeeSch = '" + fromFeeSched + "' " + matterStatus;
             DataSet myRSTkpr = _jurisUtility.RecordsetFromSQL(SQLTkpr);
 
             if (myRSTkpr.Tables[0].Rows.Count == 0)
